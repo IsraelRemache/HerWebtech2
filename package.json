@@ -18,5 +18,11 @@
   "homepage": "https://github.com/IsraelRemache/HerWebtech2#readme",
   "devDependencies": {
     "gulp": "^3.9.1"
+  },
+  "dependencies": {
+    "express": "^4.15.4",
+    "mongoose": "^4.11.7",
+    "primus": "^7.1.0",
+    "ws": "^3.1.0"
   }
 }

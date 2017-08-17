@@ -1,0 +1,22 @@
+{
+  "name": "liveqa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IsraelRemache/HerWebtech2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IsraelRemache/HerWebtech2/issues"
+  },
+  "homepage": "https://github.com/IsraelRemache/HerWebtech2#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}

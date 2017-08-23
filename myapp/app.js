@@ -5,10 +5,23 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var mongo = require('mongodb');
+var mongoose = require('mongoose');
+
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+
 var index = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+
+//run app on localhost 4000
+var server = app.listen(4000, function(){
+  console.log('listening to request on port 4000!');
+});
+
+mongoose.connect('mongodb://localhost/loginapp');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

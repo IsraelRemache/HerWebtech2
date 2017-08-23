@@ -11,15 +11,10 @@ var mongoose = require('mongoose');
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
-var index = require('./routes/index');
-var users = require('./routes/users');
-
 var app = express();
 
-//run app on localhost 4000
-var server = app.listen(4000, function(){
-  console.log('listening to request on port 4000!');
-});
+var index = require('./routes/index');
+var users = require('./routes/users');
 
 mongoose.connect('mongodb://localhost/loginapp');
 
@@ -56,4 +51,8 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+//run app on localhost 4000
+var server = app.listen(4000, function(){
+    console.log('listening to request on port 4000!');
+});
+

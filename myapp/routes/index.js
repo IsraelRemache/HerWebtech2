@@ -76,9 +76,9 @@ passport.deserializeUser(function(id, done) {
 });
 
 router.post('/',
-    passport.authenticate('local', {successRedirect:'/register', failureRedirect:'/',failureFlash: false}),
+    passport.authenticate('local', {successRedirect:'/discussions/overview', failureRedirect:'/',failureFlash: false}),
     function(req, res) {
-        res.redirect('/register');
+        res.redirect('/discussions/overview');
     });
 
 

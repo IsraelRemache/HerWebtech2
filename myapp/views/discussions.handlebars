@@ -1,0 +1,44 @@
+<div class="back"><a href="/">Back to discussions</a></div>
+
+<div class="wrap-title-discussion">
+    <h1>{{title}}</h1>
+    <div class="message-discussion">{{message}}</div>
+</div>
+
+<div class="line-gray"></div>
+<div class="users">
+
+</div>
+{{#each question}}
+    <a href="/discussions/{{../this.id}}/{{this.id}}">
+        <div class="grid-question">
+            <div class="width-q">
+                <h2>{{this.question}}</h2>
+            </div>
+            <div class="btn-give-answer">Give an answer</div>
+
+            <div class="answer">
+                <form class="form-a" action="" method="post">
+                    <textarea name="answer" placeholder="Answer" class="textfield-a textarea-a"></textarea>
+                    <input type="text" name="questionId" hidden="hidden" value="{{this.id}}">
+                    <input type="submit" value="Explain" class="button-a">
+                </form>
+            </div>
+            <form action="" method="post" class="form-del">
+                <input type="text" name="del" value="{{this.id}}" hidden="hidden">
+                <input type="submit" value="Del" class="del">
+            </form>
+        </div>
+    </a>
+    <div class="line-gray"></div>
+{{/each}}
+
+
+<div class="btn-ask-question">Ask a question</div>
+
+<div class="question">
+    <form action="" method="post">
+        <textarea name="question" placeholder="Question" class="textfield-d textarea-d"></textarea>
+        <input type="submit" value="Ask" class="button">
+    </form>
+</div>

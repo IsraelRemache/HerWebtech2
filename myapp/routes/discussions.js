@@ -3,6 +3,8 @@ var router = express.Router();
 var mongoose = require('mongoose');
 
 var Discussion = require('../Models/Discussions');
+var Question = require('../Models/Questions');
+var Answer = require('../Models/Answers');
 
 router.get('/overview', function(req, res){
 
@@ -35,6 +37,78 @@ router.post('/create', function (req, res) {
         }
     });
 });
+
+router.get('/:id', function(req, res){
+    //check all discussions
+    Discussion.count({ '_id': req.params.id }, function(err, count){
+        if(count == 1)
+        {
+            Discussion.find({ '_id': req.params.id }, function(err, docs){
+
+                Question.find({ 'discussionId': docs[0].id }, function(err, docs2){
+
+
+                    var answers = [];
+
+                    res.render('discussions', {"id": docs[0].id, "title": docs[0].title, "message": docs[0].message, "userId": docs[0].userId, "question": docs2});
+                });
+
+            });
+        }
+        else
+        {
+            res.render("error");
+        }
+    });
+});
+
+router.post('/:id', function (req, res) {
+    if(req.body.del != null){
+
+        Question.remove({ _id: req.body.del }, function(err) {
+            if (!err) {
+                res.redirect("/discussions/"+req.params.id);
+            }
+        });
+
+    }else{
+
+        if(req.body.answer != null)
+        {
+            var answer = new Answer({answer: req.body.answer , questionId: req.body.questionId , discussionId: req.params.id});
+
+            answer.save(function (err,room) {
+                if (err) {
+                    return err;
+                }
+                else {
+                    console.log("A new answer is opened with id: " + room.id);
+                    res.redirect(req.params.id);
+                }
+            });
+        }
+        else
+        {
+            var question = new Question({question: req.body.question , discussionId: req.params.id});
+
+            question.save(function (err,room) {
+                if (err) {
+                    return err;
+                }
+                else {
+                    console.log("A new question is opened with id: " + room.id);
+                    res.redirect(req.params.id);
+                }
+            });
+        }
+
+
+    }
+
+
+
+});
+
 
 
 module.exports = router;

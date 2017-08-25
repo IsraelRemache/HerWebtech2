@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var User = require('../Models/Users')
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -16,6 +17,20 @@ router.post('/register', function(req, res, next) {
     var username = req.body.username;
     var password = req.body.password;
     var password2 = req.body.password2;
+
+    var newUser = new User({
+        name: name,
+        email:email,
+        username: username,
+        password: password
+    });
+
+    User.createUser(newUser, function(err, user){
+        if(err) throw err;
+        console.log(user);
+    });
+
+    res.redirect('/');
 
 });
 

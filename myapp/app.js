@@ -22,6 +22,7 @@ app.use(express.static(__dirname + '/public'));
 var index = require('./routes/index');
 var users = require('./routes/users');
 
+//connectie naar databank
 mongoose.connect('mongodb://localhost/loginapp');
 
 

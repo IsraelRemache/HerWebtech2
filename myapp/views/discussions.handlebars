@@ -1,30 +1,27 @@
-<div class="back"><a href="/">Back to discussions</a></div>
+<div class="button__back"><a href="/">Back to discussions</a></div>
 
-<div class="wrap-title-discussion">
+<div class="discussion__title">
     <h1>{{title}}</h1>
-    <div class="message-discussion">{{message}}</div>
+    <div class="discussion__message">{{message}}</div>
 </div>
 
-<div class="line-gray"></div>
-<div class="users">
 
-</div>
 {{#each question}}
     <a href="/discussions/{{../this.id}}/{{this.id}}">
-        <div class="grid-question">
-            <div class="width-q">
+        <div class="question__posted">
+            <div class="question__title">
                 <h2>{{this.question}}</h2>
             </div>
-            <div class="btn-give-answer">Give an answer</div>
+            <div class="button_answer">Give an answer</div>
 
             <div class="answer">
                 <form class="form-a" action="" method="post">
-                    <textarea name="answer" placeholder="Answer" class="textfield-a textarea-a"></textarea>
+                    <textarea name="answer" placeholder="Answer" class="answer__text"></textarea>
                     <input type="text" name="questionId" hidden="hidden" value="{{this.id}}">
                     <input type="submit" value="Explain" class="button-a">
                 </form>
             </div>
-            <form action="" method="post" class="form-del">
+            <form action="" method="post" class="form__del">
                 <input type="text" name="del" value="{{this.id}}" hidden="hidden">
                 <input type="submit" value="Del" class="del">
             </form>
@@ -34,11 +31,11 @@
 {{/each}}
 
 
-<div class="btn-ask-question">Ask a question</div>
+<div class="button__ask">Ask a question</div>
 
 <div class="question">
     <form action="" method="post">
-        <textarea name="question" placeholder="Question" class="textfield-d textarea-d"></textarea>
+        <textarea name="question" placeholder="Question" class="ask__text"></textarea>
         <input type="submit" value="Ask" class="button">
     </form>
 </div>

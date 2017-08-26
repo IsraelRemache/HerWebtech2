@@ -1,12 +1,14 @@
-<h1 class="h1-dis">Discussions</h1>
-
-<div class="line-gray dis"></div>
+<h1 class="h1">Discussions</h1>
 
 {{#each data}}
-    <div class="wrap-each-discussion">
+    <div class="discussion">
         <a href="/discussions/{{this.id}}">
-            <div class="title-discussion">{{this.title}}</div>
-            <div class="mes-dis">{{this.message}}</div>
+            <div class="discussion__title">{{this.title}}</div>
+            <div class="discussion__message">{{this.message}}</div>
         </a>
     </div>
 {{/each}}
+
+<a href="/discussions/create">
+    <p class="create__p">Create Discussion</p>
+</a>

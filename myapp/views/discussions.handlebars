@@ -5,7 +5,7 @@
     <div class="discussion__message">{{message}}</div>
 </div>
 
-
+<div id="questions">
 {{#each question}}
     <a href="/discussions/{{../this.id}}/{{this.id}}">
         <div class="question__posted">
@@ -27,15 +27,32 @@
             </form>
         </div>
     </a>
-    <div class="line-gray"></div>
 {{/each}}
-
+</div>
 
 <div class="button__ask">Ask a question</div>
 
 <div class="question">
-    <form action="" method="post">
-        <textarea name="question" placeholder="Question" class="ask__text"></textarea>
+    <form action="" method="post" id="qform">
+        <textarea name="question" placeholder="Question" class="ask__text" id="m"></textarea>
         <input type="submit" value="Ask" class="button">
     </form>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+<script>
+    var socket = io();
+    $('#qform').submit(function(){
+        socket.emit('chat message', $('#m').val());
+    });
+
+    socket.on('chat message', function(msg){
+        var appendh2 = '<div class=“question_title”><h2>'+msg+'</h2></div>';
+        $('#questions').append(appendh2);
+
+
+
+    });
+
+
+</script>

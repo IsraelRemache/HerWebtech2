@@ -15,7 +15,6 @@ var mongo = require('mongodb');
 var mongoose = require('mongoose');
 
 var http = require('http').Server(app);
-var io = require('socket.io')(http);
 
 //styles
 
@@ -72,5 +71,14 @@ app.use(function(err, req, res, next) {
 var server = app.listen(4000, function(){
     console.log('listening to request on port 4000!');
 });
+
+//socket part
+var io = require('socket.io').listen(server);
+io.on('connection', function(socket){
+    socket.on('chat message', function(msg){
+        io.emit('chat message', msg);
+    });
+});
+
 
 module.exports = app;

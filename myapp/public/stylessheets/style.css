@@ -1,0 +1,49 @@
+body {
+  font: 14px "Helvetica", sans-serif;
+  margin: auto auto;
+  width: 55vw; }
+
+a {
+  text-decoration: none; }
+
+h2 {
+  font-size: 3em;
+  padding: 5px 5px; }
+
+.form__username {
+  padding: 10px 10px;
+  margin: auto auto; }
+
+.form__password {
+  padding: 10px 10px;
+  margin: auto auto; }
+
+.button__submit {
+  background-color: #00B7FF;
+  width: 70px;
+  padding: 5px 5px;
+  position: center;
+  margin-left: 70px; }
+
+.discussion {
+  display: flex; }
+
+.discussion__title {
+  align-items: center;
+  color: black;
+  font-size: 2em; }
+
+.discussion__message {
+  font-size: 1em;
+  color: black; }
+
+.create__p {
+  font-size: 2em;
+  color: darkslategrey; }
+
+.button__back a {
+  color: darkcyan;
+  padding-top: 10px; }
+
+.create__text {
+  width: 300px; }

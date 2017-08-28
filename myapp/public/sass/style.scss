@@ -1,44 +1,70 @@
+$blueish : #E0F7FA;
+$fullbody : #0097A7;
+$darkblue: #006064;
+$cubeblue: #80DEEA;
+$greyscl: #424242;
+
+
+
 body {
   font: 14px "Helvetica", sans-serif;
   margin: auto 40%;
   width: 100vw;
-  background-color: #0097A7; }
+  background-color: $fullbody;
+
+}
 
 a {
-  text-decoration: none; }
-
+  text-decoration: none;
+}
 h2 {
   font-size: 3em;
-  padding: 5px 5px; }
+  padding: 5px 5px;
+
+}
+
+
+// login page
 
 .form__login {
-  background-color: #E0F7FA;
+  background-color: $blueish;
   display: flex;
   width: 300px;
-  height: 400px; }
+  height: 400px;
+}
 
 .form__username,
-.form__password {
+.form__password{
+
   margin-left: 40px;
-  margin-top: 40px; }
+  margin-top: 40px;
+}
 
 .button__submit {
-  background-color: #006064;
+  background-color: $darkblue;
   margin-left: 80px;
   margin-top: 40px;
   color: white;
   width: 100px;
-  height: 30px; }
+  height: 30px;
+
+
+}
 
 .form__login a {
   text-decoration: none;
-  color: black; }
+  color: black;
+}
+
+
+// register page
 
 .form__register {
-  background-color: #E0F7FA;
+  background-color: $blueish;
   display: flex;
   width: 300px;
-  height: 400px; }
+  height: 400px;
+}
 
 .form__register__username,
 .form__register__email,
@@ -46,82 +72,107 @@ h2 {
 .form__register__password,
 .form__register__confirmp {
   margin-left: 40px;
-  margin-top: 20px; }
+  margin-top: 20px;
+}
 
-.form__register input {
+.form__register input{
   width: 100px;
   margin-left: 10px;
-  float: right; }
+  float: right;
+}
 
-.overview__discussions {
-  background-color: #E0F7FA;
+
+// discussions overview
+
+.overview__discussions{
+  background-color: $blueish;
   width: 50%;
   padding: 50px 50px;
   margin-left: -250px;
-  display: flex; }
+  display: flex;
+}
 
 .discussion {
   flex-direction: row;
-  background-color: #80DEEA;
+  background-color: $cubeblue;
   padding: 5px;
-  margin: 7px; }
+  margin: 7px;
+}
 
 .discussion a {
   text-decoration: none;
-  color: #424242; }
+  color: $greyscl;
+}
 
 .create__p {
-  background-color: #E0F7FA;
+  background-color: $blueish;
   width: 150px;
   height: 80px;
   border-radius: 10px 5%;
   padding: 10px;
-  color: #424242;
+  color: $greyscl;
   margin-left: 50px;
-  font-size: 2em; }
+  font-size: 2em;
+}
+
+// create discussion (discussions/create)
 
 .create {
-  background-color: #E0F7FA;
+  background-color: $blueish;
   width: 50%;
   padding: 50px 50px;
   margin-left: -150px;
-  display: flex; }
+  display: flex;
+
+}
 
 .create__title,
 .create__text,
-.button__create {
+.button__create{
   flex-direction: row;
-  width: 500px; }
+  width: 500px;
+}
 
 .create__title {
-  height: 20px; }
-
+  height: 20px;
+}
 .create__text {
-  height: 40px; }
+  height: 40px;
+}
+
+// all discussions (discussions/overview)
 
 .button__back {
-  padding-top: 10px; }
+  padding-top: 10px;
 
+}
 .button__back a {
-  color: #424242; }
+  color: $greyscl;
+}
 
 .discussion__overview {
-  background-color: #E0F7FA;
+  background-color: $blueish;
+  //display: flex;
   width: 300px;
-  height: 100vh; }
+  height: 100vh;
+}
 
-.discussion__intro {
+.discussion__intro{
   padding-left: 100px;
   padding-top: 10px;
-  padding-bottom: 15px; }
+  padding-bottom: 15px;
+}
 
 .form__question {
-  padding-left: 100px; }
-
+  padding-left: 100px;
+}
 .form__question input {
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+}
 
 #questions {
   padding-left: 100px;
   padding-top: 10px;
-  padding-bottom: 15px; }
+  padding-bottom: 15px;
+}
+

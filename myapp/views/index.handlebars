@@ -1,5 +1,6 @@
-<h1 class="h1">Discussions</h1>
+<h2>Discussions</h2>
 
+<div class="overview__discussions">
 {{#each data}}
     <div class="discussion">
         <a href="/discussions/{{this.id}}">
@@ -8,6 +9,8 @@
         </a>
     </div>
 {{/each}}
+
+</div>
 
 <a href="/discussions/create">
     <p class="create__p">Create Discussion</p>

@@ -1,44 +1,34 @@
-<div class="button__back"><a href="/">Back to discussions</a></div>
+<div class="button__back"><a href="/discussions/overview">Back to discussions</a></div>
 
-<div class="discussion__title">
-    <h1>{{title}}</h1>
+<div class="discussion__overview">
+<div class="discussion__intro">
+    <h3>{{title}}</h3>
     <div class="discussion__message">{{message}}</div>
 </div>
 
 <div id="questions">
 {{#each question}}
-    <a href="/discussions/{{../this.id}}/{{this.id}}">
         <div class="question__posted">
             <div class="question__title">
-                <h2>{{this.question}}</h2>
+                <h3>{{this.question}}</h3>
             </div>
-            <div class="button_answer">Give an answer</div>
 
-            <div class="answer">
-                <form class="form-a" action="" method="post">
-                    <textarea name="answer" placeholder="Answer" class="answer__text"></textarea>
-                    <input type="text" name="questionId" hidden="hidden" value="{{this.id}}">
-                    <input type="submit" value="Explain" class="button-a">
-                </form>
-            </div>
-            <form action="" method="post" class="form__del">
+            <form action="" method="post">
                 <input type="text" name="del" value="{{this.id}}" hidden="hidden">
                 <input type="submit" value="Del" class="del">
             </form>
         </div>
-    </a>
 {{/each}}
 </div>
 
-<div class="button__ask">Ask a question</div>
-
-<div class="question">
+<div class="form__question">
     <form action="" method="post" id="qform">
         <textarea name="question" placeholder="Question" class="ask__text" id="m"></textarea>
-        <input type="submit" value="Ask" class="button">
+        <input type="submit" value="Ask">
     </form>
 </div>
 
+</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
 <script>
     var socket = io();
@@ -47,7 +37,7 @@
     });
 
     socket.on('chat message', function(msg){
-        var appendh2 = '<div class=“question_title”><h2>'+msg+'</h2></div>';
+        var appendh2 = '<div class=“question_title”><h3>'+msg+'</h3></div>';
         $('#questions').append(appendh2);
 
 

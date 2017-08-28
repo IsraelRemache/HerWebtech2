@@ -22,7 +22,6 @@ router.get('/create', function(req, res){
 });
 
 router.post('/create', function (req, res) {
-    // if (!req.body) return res.sendStatus(400)
 
     var post = new Discussion({title: req.body.title , message: req.body.message, userId: 1});
 
@@ -48,8 +47,6 @@ router.get('/:id', function(req, res){
                 Question.find({ 'discussionId': docs[0].id }, function(err, docs2){
 
 
-                    var answers = [];
-
                     res.render('discussions', {"id": docs[0].id, "title": docs[0].title, "message": docs[0].message, "userId": docs[0].userId, "question": docs2});
                 });
 
@@ -71,22 +68,7 @@ router.post('/:id', function (req, res) {
             }
         });
 
-    }else{
-
-        if(req.body.answer != null)
-        {
-            var answer = new Answer({answer: req.body.answer , questionId: req.body.questionId , discussionId: req.params.id});
-
-            answer.save(function (err,room) {
-                if (err) {
-                    return err;
-                }
-                else {
-                    console.log("A new answer is opened with id: " + room.id);
-                    res.redirect(req.params.id);
-                }
-            });
-        }
+    }
         else
         {
             var question = new Question({question: req.body.question , discussionId: req.params.id});
@@ -101,10 +83,7 @@ router.post('/:id', function (req, res) {
                 }
             });
         }
-
-
-    }
-
+    
 
 
 });
